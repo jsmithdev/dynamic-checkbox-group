@@ -1,0 +1,65 @@
+<template>
+	<lightning-card
+		title="Dynamic Checkbox Group"
+		icon-name="custom:custom63"
+	>
+	<div style="margin: 1rem;">
+		<h1>Dynamic  (horizontal, single)</h1>
+		<c-dynamic-checkbox-group
+			single
+			name="StageName"
+			label="StageName"
+
+			object-api-name="Opportunity"
+			field-api-name="StageName"
+			record-type-id={recordTypeId}
+
+			onchange={handleChange}
+		></c-dynamic-checkbox-group>
+		
+		<br/>
+		
+		<h1>Override (vertical)</h1>
+
+		<div style="text-align: center; max-width: 300px;">
+			<c-dynamic-checkbox-group
+				vertical
+				name="Custom_Override__c"
+				
+				label="Override Demo"
+				variant="label-stacked"
+
+				options-override={secondOptions}
+
+				onchange={handleChange}
+			></c-dynamic-checkbox-group>
+		</div>
+		
+		<br/>
+		
+		<h1>Override (vertical, label-inline)</h1>
+
+		<div style="text-align: center; max-width: 300px;">
+			<c-dynamic-checkbox-group
+				vertical
+				name="Custom_Override__c"
+				
+				label="Override Demo"
+				variant="label-inline"
+
+				options-override={secondOptions}
+
+				onchange={handleChange}
+			></c-dynamic-checkbox-group>
+		</div>
+		<!-- 
+			Use label-hidden to hide the label but make it available to assistive technology.
+			Use label-inline to horizontally align the label and checkbox group.
+			Use label-stacked to place the label above the checkbox group.
+		-->
+
+		<br/>
+		
+	</div>
+</lightning-card>
+</template>

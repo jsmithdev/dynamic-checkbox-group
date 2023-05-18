@@ -1,0 +1,69 @@
+<template>
+	<div class={containerClasses}>
+
+		<c-event-passer></c-event-passer>
+
+		<fieldset class="slds-form-element">
+			<template if:true={showLabel}>
+				<legend class="slds-form-element__legend slds-form-element__label">{label}</legend>
+			</template>
+
+			<div class={contentClasses}>
+
+				<template if:false={vertical}>
+					<template for:each={options} for:item="option">
+						<div data-value={option.value} onclick={handleClick} key={option.value}>
+							<div class="slds-checkbox">
+								<template if:true={option.selected}>
+									<input checked type="checkbox" name={option.value} id={option.value}
+										value={option.value} />
+								</template>
+								<template if:false={option.selected}>
+									<input type="checkbox" name={option.value} id={option.value} value={option.value} />
+								</template>
+								<label class="slds-checkbox__label" for="checkbox-unique-id-84">
+									<span class="slds-checkbox_faux"></span>
+									<span class="slds-form-element__label">{option.label}</span>
+								</label>
+							</div>
+						</div>
+					</template>
+				</template>
+
+				<template if:true={vertical}>
+					<template for:each={groups} for:item="group">
+						<div class="group" key={group.key}>
+							<template for:each={group.options} for:item="option">
+								<div data-value={option.value} onclick={handleClick} key={option.value}>
+									<div class="slds-checkbox">
+										<template if:true={option.selected}>
+											<input checked type="checkbox" name={option.value} id={option.value}
+												value={option.value} />
+										</template>
+										<template if:false={option.selected}>
+											<input type="checkbox" name={option.value} id={option.value} value={option.value} />
+										</template>
+										<label class="slds-checkbox__label" for="checkbox-unique-id-84">
+											<span class="slds-checkbox_faux"></span>
+											<span class="slds-form-element__label">{option.label}</span>
+										</label>
+									</div>
+								</div>
+							</template>
+						</div>
+					</template>
+				</template>
+			</div>
+		</fieldset>
+	</div>
+	<template if:true={debugMode}>
+		<div class="slds-grid slds-gutters">
+			<div class="slds-col slds-size_1-of-1">
+				<lightning-button
+					label="Debug"
+					onclick={debug}
+				></lightning-button>
+			</div>
+		</div>
+	</template>
+</template>

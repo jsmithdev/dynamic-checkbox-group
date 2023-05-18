@@ -1,0 +1,35 @@
+.container {
+	width: 100%;
+	height: 100%;
+}
+.lineHeightTwo {
+	line-height: 2rem;
+}
+
+.hor-elm {
+	display: flex;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    /* line-height: 2.5rem; */
+	max-width: 500px;
+}
+
+.ver-elm {
+	/* width:200px; */
+    /* height: 180px; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.group {
+	margin: 0 auto;
+}
+
+
+.slds-form-element_horizontal {
+	padding: 0px !important;
+}
