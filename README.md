@@ -38,6 +38,29 @@ An LWC checkbox group, based on Salesforce's [lightning-checkbox-group](https://
 
 See the [demo](/force-app/main/default/lwc/dynamicCheckboxGroupDemo/) for more details (demo works well in SFDX Local Development Server 👍)
 
+### RecordType Id
+
+As seen above, this takes a record-type-id. 
+
+However, we can easily get a record type id in a parent component to give to this without Apex: 
+
+```js
+import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+import Opportunity from '@salesforce/schema/Opportunity'; 
+
+export default class ParentExample extends LightningElement {
+	
+    recordTypeId;
+
+    @wire (getObjectInfo, { objectApiName: Opportunity })
+    _setField({ data, error }) {
+        this.recordTypeId = data?.defaultRecordTypeId;
+    }
+}
+```
+
+This way it's more effecient on projects that use multiple checkbox-groups, etc by making that call only once
+
 ## Deploy
 
 ```bash
