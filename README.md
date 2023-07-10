@@ -36,7 +36,7 @@ An LWC checkbox group, based on Salesforce's [lightning-checkbox-group](https://
 ></c-dynamic-checkbox-group>
 ```
 
-See the [demo](/force-app/main/default/lwc/dynamicCheckboxGroupDemo/) for more details (demo works well in SFDX Local Development Server 👍)
+See the [demo](/force-app/main/default/lwc/dcgDemo/) for more details (demo works well in SFDX Local Development Server 👍)
 
 ### RecordType Id
 
